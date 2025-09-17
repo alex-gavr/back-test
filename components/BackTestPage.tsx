@@ -4,7 +4,6 @@ import { pushBack } from '@/app/pushBack';
 import { useBackButtonHandler } from '@/hooks/useBackButtonHandler';
 import { useHistoryManipulation } from '@/hooks/useHistoryManipulation';
 import { useUrlRedirect } from '@/hooks/useUrlRedirect';
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 interface BackTestPageProps {
@@ -22,7 +21,6 @@ export function BackTestPage({
   mainButtonText = 'Main Exit',
   backButtonText = 'window.history.back()',
 }: BackTestPageProps) {
-  const router = useRouter();
   const pushBackFn = () => pushBack({ useCurrentPath });
   const { handlePushState } = useHistoryManipulation({ pushBackFn });
   const { onClick } = useBackButtonHandler({ pushBackFn });
@@ -42,7 +40,7 @@ export function BackTestPage({
           {mainButtonText}
         </button>
         <button
-          onClick={() => router.back()}
+          onClick={() => window.history.back()}
           className='px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors'
         >
           {backButtonText}
