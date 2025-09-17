@@ -4,7 +4,7 @@ import { pushBack } from '@/app/pushBack';
 import { useBackButtonHandler } from '@/hooks/useBackButtonHandler';
 import { useHistoryManipulation } from '@/hooks/useHistoryManipulation';
 import { useUrlRedirect } from '@/hooks/useUrlRedirect';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 interface BackTestPageProps {
